@@ -1,7 +1,20 @@
-import "./App.css";
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/home/Home';
+import NotFound from './pages/notfound/NotFound';
+import NavBar from './components/navbar/NavBar';
 
 function App() {
-  return <div>Hello</div>;
+  return (
+    <Routes>
+      <Route path="/" element={<NavBar />}>
+        <Route index element={<Home />} />
+        <Route path="pathfind" />
+        <Route path="sorting" />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
 }
 
 export default App;
