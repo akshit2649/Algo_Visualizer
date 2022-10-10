@@ -4,6 +4,7 @@ import Home from './pages/home/Home';
 import NotFound from './pages/notfound/NotFound';
 import NavBar from './components/navbar/NavBar';
 import PathFinding from './pages/pathfinding/PathFinding';
+import Sorting from './pages/sorting/Sorting';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Route path="/" element={<NavBar />}>
         <Route index element={<Home />} />
         <Route path="pathfind" element={<PathFinding />} />
-        <Route path="sorting" />
+        <Route path="sorting" element={<Sorting />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

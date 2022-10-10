@@ -6,10 +6,12 @@
   justify-content: center;
   /* color: white; */
   font-family: 'Roboto', sans-serif;
+  /* font-family: 'Press Start 2P', cursive; */
 }
 .menuContainer {
   display: flex;
   background-color: white;
+  color: black;
   flex-direction: column;
   /* height: 400px; */
   gap: 10px;
