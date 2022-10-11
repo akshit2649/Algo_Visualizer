@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './pathfinding.css';
 import Node from '../../components/Node/Node';
 import { dijkstra, getNodesInShortestPathOrder } from '../../algorithms/dijkstra';
+import { useLinkClickHandler } from 'react-router-dom';
 
 //Inital setting
 const START_NODE_ROW = 10;
@@ -26,7 +27,7 @@ const createNode = (row, col) => {
 const PathFinding = () => {
   const [grid, setGrid] = useState([]);
   const [mouseIsPressed, setMouseIsPressed] = useState(false);
-
+  const [reset, setReset] = useState(false);
   useEffect(() => {
     //Initializing the grid
     const tempGrid = [];
@@ -38,7 +39,11 @@ const PathFinding = () => {
       tempGrid.push(currentRow);
     }
     setGrid(tempGrid);
-  }, []);
+  }, [reset]);
+
+  const resetHandler = () => {
+    window.location.reload(false);
+  };
 
   const getNewGridWithWallToggled = (row, col) => {
     const newGrid = grid.slice();
@@ -107,7 +112,9 @@ const PathFinding = () => {
         <button onClick={visualizeDijkstra} className="start">
           Visualize Dijkstar's algorithm
         </button>
-        <button className="reset"> Reset</button>
+        <button onClick={resetHandler} className="reset">
+          Reset
+        </button>
       </div>
       <div className="grid">
         {grid.map((row, rowIdx) => (
